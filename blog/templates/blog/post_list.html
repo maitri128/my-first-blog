@@ -1,22 +1,12 @@
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Tiny trails</a></h1>
-        </header>
+<header>
+    <h1><a href="/">Tiny trails</a></h1>
+</header>
 
-        <article>
-            <time>published: 13.04.2026</time>
-            <h2><a href="">Trip to Rüdesheim am Rhein</a></h2>
-        </article>
-
-        <article>
-            <time>published: 13.04.2026</time>
-            <h2><a href="">Trip to Heidelberg</a></h2>
-         </article>
-    </body>
-</html>
+{% for post in posts %}
+    <article>
+        <time>published: {{ post.published_date }}</time>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </article>
+{% endfor %}
